@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>起步</title>
+</head>
+<body>
+    <h2>声明式渲染 {{message}}输出</h2>
+    <div id="app">
+        {{message}}
+    </div>
+
+    <h2>指令v-bind，'v-bind:title=message'，简单含义是将这个元素的‘title’属性和Vue实例的‘message’绑定到一起 </h2>
+    <div id="app2">
+        <span v-bind:title="message">
+            Hover your mouse over me for a few seconds to see dynamically bound title!
+        </span>
+    </div>
+
+    <h2>条件与循环</h2>
+    <div id="app3">
+        <p v-if="seen">Now you see me</p>
+    </div>
+
+    <div id="app4">
+        <ol>
+            <li v-for="(todo, index) in todos">
+                {{todo.text}} - {{index}} - {{new Date().getTime()}}
+            </li>
+        </ol>
+    </div>
+
+    <script src="https://cdn.bootcss.com/vue/2.1.10/vue.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
