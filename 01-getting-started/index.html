@@ -3,23 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>起步</title>
+    <style>
+        .interact {
+            background-color: antiquewhite;
+        }
+    </style>
 </head>
 <body>
-    <h2>声明式渲染 {{message}}输出</h2>
+    <h2>1. 声明式渲染 {{message}}输出</h2>
     <div id="app">
         {{message}}
+        <p class="interact">打开你的浏览器的控制台，并修改 app.message，你将看到上例相应地更新</p>
     </div>
+    <hr>
 
-    <h2>指令v-bind，'v-bind:title=message'，简单含义是将这个元素的‘title’属性和Vue实例的‘message’绑定到一起 </h2>
+    <h2>2. 指令v-bind，'v-bind:title=message'，简单含义是将这个元素的‘title’属性和Vue实例的‘message’绑定到一起 </h2>
     <div id="app2">
         <span v-bind:title="message">
             Hover your mouse over me for a few seconds to see dynamically bound title!
         </span>
+        <p class="interact">再次打开浏览器的控制台输入 app2.message = 'some new message'，你就会再一次看到这个绑定了title属性的HTML已经进行了更新。</p>
     </div>
+    <hr>
 
-    <h2>条件与循环</h2>
+    <h2>3. 条件与循环</h2>
     <div id="app3">
-        <p v-if="seen">Now you see me</p>
+        <p v-if="seen">Now you see mei</p>
+        <p class="interact">在控制台设置 app3.seen = false，你会发现 “Now you see me” 消失了。</p>
     </div>
 
     <div id="app4">
@@ -28,7 +38,31 @@
                 {{todo.text}} - {{index}} - {{new Date().getTime()}}
             </li>
         </ol>
+        <p class="interact">在控制台里，输入 app4.todos.push({ text: 'New Last Item' })、app4.todos.unshift({text: 'New First Iterm'})。你会发现列表中多了新内容，每一项的输出时间都会发生变化，说明列表重渲染了。</p>
     </div>
+    <hr>
+
+    <h2>4. 处理用户输入</h2>
+    <div id="app5">
+        <p>{{message}}</p>
+        <button v-on:click="reverseMessage">Reversemessage</button>
+        <p class="interact">在 reverseMessage 方法中，我们在没有接触 DOM 的情况下更新了应用的状态 - 所有的 DOM 操作都由 Vue 来处理，你写的代码只需要关注基本逻辑。</p>
+    </div>
+
+    <p class="interact">Vue 也提供了 v-model 指令，它使得在表单输入和应用状态中做双向数据绑定变得非常轻巧。</p>
+    <div id="app6">
+        <p>{{message}}</p>
+        <input v-model="message">
+    </div>
+    <hr>
+
+    <h2>5. 用组件构建（应用）</h2>
+    <div id="app7">
+        <ol>
+            <todo-item v-for="item of groceryList" v-bind:todo="item"></todo-item>
+        </ol>
+    </div>
+
 
     <script src="https://cdn.bootcss.com/vue/2.1.10/vue.min.js"></script>
     <script src="app.js"></script>

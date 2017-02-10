@@ -29,3 +29,38 @@ var app4 = new Vue({
         ]
     }
 });
+
+var app5 = new Vue({
+    data: {
+        message: 'Hello Vue.js!'
+    },
+
+    methods: {
+        reverseMessage: function() {
+            this.message = this.message.split('').reverse().join('');
+        }
+    }
+}).$mount('#app5');
+
+var app6 = new Vue({
+    el: '#app6',
+    data: {
+        message: 'Hello Vue!'
+    }
+});
+
+Vue.component('todo-item', {
+    props: ['todo'],
+    template: '{{<li>{{todo.text}}</li>}}'
+});
+
+var app7 = new Vue({
+    el: '#app7',
+    data: {
+        groceryList: [
+            {text: 'Vegetables'},
+            {text: 'Cheese'},
+            {text: 'Whatever else humans are supposed to eat'}
+        ]
+    }
+});
