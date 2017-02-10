@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条件渲染</title>
+    <style>
+        p, div, pre {
+            font-size: 0.8em;
+        }
+        pre {
+            line-height: 1.1em;
+            background-color: #f8f8f8;
+            border-radius: 2px;
+            overflow-x: auto;
+        }
+        code {
+            color: #e96900;
+            padding: 3px 5px;
+            margin: 0 2px;
+            border-radius: 2px;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <h2>条件渲染</h2>
+    <h3><code>v-if</code>组</h3>
+    <h5><code>v-if</code>、<code>v-else-if</code>、<code>v-else</code></h5>
+    <pre>
+        &lt;div v-if="gender === '0'"&gt;男&lt;/div&gt;
+        &lt;div v-else-if="gender === '1'"&gt;女&lt;/div&gt;
+        &lt;div v-else&gt;未知&lt;/div&gt;
+    </pre>
+    <p><code>v-else</code> 元素必须紧跟在 <code>v-if</code> 元素或者 <code>v-else-if</code>的后面——否则它不能被识别。</p>
+    <p>与 <code>v-else</code> 相似,，<code>v-else-if</code> 必须跟在 <code>v-if</code> 或者 <code>v-else-if</code>之后。</p>
+
+    <h5><code>&lt;template&gt;</code> 中 <code>v-if</code>组</h3>
+    <p>因为 <code>v-if</code> 是一个指令，需要将它添加到一个元素上。但是如果我们想切换多个元素呢？此时我们可以把一个 <code>&lt;template&gt;</code> 元素当做包装元素，并在上面使用 <code>v-if</code>，最终的渲染结果不会包含它。</p>
+    <pre>
+        &lt;template v-if="ok"&gt;
+            &lt;h1&gt;Title&lt;/h1&gt;
+            &lt;p&gt;Paragraph 1&lt;/p&gt;
+            &lt;p&gt;Paragraph 2&lt;/p&gt;
+        &lt;/template&gt;
+    </pre>
+    <h5>使用- <code>key</code>-控制元素的可重用</h5>
+    <p>Vue 尝试尽可能高效的渲染元素，通常会复用已有元素而不是从头开始渲染。这么做除了使 Vue 更快之外还可以得到一些好处。如下例，当允许用户在不同的登录方式之间切换:</p>
+    <pre>
+        &lt;template v-if="loginType === 'username'"&gt;
+            &lt;label&gt;Username&lt;/label&gt;
+            &lt;input placeholder="Enter your username"&gt;
+            &lt;/template&gt;
+            &lt;template v-else&gt;
+            &lt;label&gt;Email&lt;/label&gt;
+            &lt;input placeholder="Enter your email address"&gt;
+        &lt;/template&gt;
+    </pre>
+    <p>在代码中切换 <code>loginType</code> 不会删除用户已经输入的内容，两个模版由于使用了相同的元素，<code>&lt;input&gt;</code> 会被复用，仅仅是替换了他们的 <code>placeholder</code>。</p>
+    <p>这样也不总是符合实际需求，所以 Vue 提供一种方式让你可以自己决定是否要复用元素。你要做的是添加一个属性 <code>key</code> ，<code>key</code> 必须带有唯一的值。</p>
+    <pre>
+        &lt;template v-if="loginType === 'username'"&gt;
+            &lt;label&gt;Username&lt;/label&gt;
+            &lt;input placeholder="Enter your username" key="username-input"&gt;
+            &lt;/template&gt;
+            &lt;template v-else&gt;
+            &lt;label&gt;Email&lt;/label&gt;
+            &lt;input placeholder="Enter your email address" key="email-input"&gt;
+        &lt;/template&gt;
+    </pre>
+
+    <h3><code>v-show</code></h3>
+    <p>选项是 v-show 指令。用法大体上一样：</p>
+    <pre>
+        &lt;h1 v-show="ok"&gt;Hello!&lt;/h1&gt;
+    </pre>
+    <p>不同的是有 <code>v-show</code> 的元素会始终渲染并保持在 DOM 中。<code>v-show</code> 是简单的切换元素的 CSS 属性 <code>display</code> 。</p>
+    <strong><code>v-show</code>不支持<code>template</code>语法</strong>
+</body>
+</html>
