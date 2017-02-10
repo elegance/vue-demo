@@ -37,7 +37,7 @@
         <pre>
             &lt;span&gt;Message: {{ msg }}&lt;/span&gt;
         </pre>
-        2. v-once 执行一次性地插值，当数据改变时，插值处的内容不会更新。但请留心这会影响到该节点上所有的数据绑定
+        <p>2. v-once 执行一次性地插值，当数据改变时，插值处的内容不会更新。但请留心这会影响到该节点上所有的数据绑定</p>
         <pre>
             &lt;span v-once&gt;This will never change: {{ msg }}&lt;/span&gt;
         </pre>
@@ -108,7 +108,7 @@
         <pre>
             &lt;form v-on:submit.prevent="onSubmit"&gt;&lt;/form&gt;
         </pre>
-    
+
     <h3>过滤器(Filter)</h3>
     <hr>
     <p>Vue.js 允许你自定义过滤器，被用作一些常见的文本格式化。过滤器应该被添加在 <strong>mustache 插值</strong>的尾部，由“管道符”指示：</p>
