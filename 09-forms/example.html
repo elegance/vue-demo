@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单控件绑定</title>
+</head>
+<body>
+    <h5>example-1</h5>
+    <div id="example-1">
+        <h6>单行文本</h6>
+        <input v-model="message" placeholder="edit me">
+        <p>Message is: {{ message }}</p>
+        <h6>多行文本</h6>
+        <span>Multiline message is:</span>
+        <p style="white-space:pre">{{message}}</p>
+        <br>
+        <textarea v-model="message" placeholder="add multiple lines"></textarea>
+        <h6>单个勾选框</h6>
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">{{ checked }}</label>
+    </div>
+    <hr>
+
+    <script src="https://cdn.bootcss.com/vue/2.1.10/vue.min.js"></script>
+    <script src="example.js"></script>
+</body>
+</html>
