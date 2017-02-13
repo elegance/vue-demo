@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件处理</title>
+</head>
+<body>
+    <h5>example-1</h5>
+    <div id="example-1">
+        <button v-on:click="counter += 1">增加1</button>
+        <p>这个按钮被点击了{{counter}}次</p>
+    </div>
+    <hr>
+
+    <h5>example-2</h5>
+    <div id="example-2">
+        <button v-on:click="greet">Greet</button>
+    </div>
+
+    <hr>
+    <h5>example-3</h5>
+    <div id="example-3">
+        <button v-on:click="say('hi', $event)">Say hi</button>
+        <button v-on:click="say('what', $event)">Say what</button>
+    </div>
+
+    <hr>
+    <h5>example-4</h5>
+    <div id="example-4">
+        <button v-on:click.once="alert('Only Once')">Just once.</button>
+        <p></p>
+        <input @keyup.enter="alert('enter show')" placeholder="Enter show">
+    </div>
+
+    <script src="https://cdn.bootcss.com/vue/2.1.10/vue.min.js"></script>
+    <script src="example.js"></script>
+</body>
+</html>
