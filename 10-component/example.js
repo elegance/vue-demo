@@ -222,3 +222,16 @@ Vue.component('app-layout', {
 new Vue({
     el: '#example13'
 });
+
+// 作用域插槽
+Vue.component('child-slot', {
+    template: `
+        <div class="child">
+            <slot text="hello from child"></slot>
+        </div>
+    `
+})
+
+new Vue({
+    el: '#example14'
+});

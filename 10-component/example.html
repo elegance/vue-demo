@@ -85,6 +85,17 @@
             <p slot="footer">底部-共用的底部信息</p>
         </app-layout>
     </div>
+
+    <div id="example14">
+        <div class="parent">
+            <child-slot>
+                <template scope="props">
+                    <div>hello from parent</div>
+                    <div>{{ props.text }}</div>
+                </template>
+            </child-slot>
+        </div>
+    </div>
     <script src="https://cdn.bootcss.com/vue/2.1.10/vue.min.js"></script>
     <script src="example.js"></script>
 </body>
