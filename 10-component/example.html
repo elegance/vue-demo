@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件</title>
+</head>
+<body>
+    <div id="example">
+        <my-component></my-component>
+    </div>
+
+    <div id="example2">
+        <my-component2></my-component2>
+    </div>
+
+    <div id="exmaple3">
+        <table>
+            <!-- 然而 这里的 is 好像不对，不知道哪里出问题了。-->
+            <tr is="my-row"></tr>
+        </table>
+    </div>
+
+    <div id="example4">
+        <my-component3></my-component3>
+    </div>
+
+    <div id="example5">
+        <simple-counter></simple-counter>
+        <simple-counter></simple-counter>
+        <simple-counter></simple-counter>
+    </div>
+
+    <div id="example6">
+        <simple-counter></simple-counter>
+        <simple-counter></simple-counter>
+        <simple-counter></simple-counter>
+    </div>
+
+    <div id="example7">
+        <child message="hello"></child>
+    </div>
+
+    <div id="example8">
+        <input type="text" v-model="parentMsg">
+        <br>
+        <child :my-message="parentMsg"></child>
+    </div>
+
+    <div id="example9">
+        <comp some-prop="1"></comp>
+        <comp :some-prop="1"></comp>
+    </div>
+
+    <div id="example10">
+        <prop-check :propA="1" propB="b" propC="c" propD propE propF="11"></prop-check>
+    </div>
+
+    <div id="counter-event-example">
+        <p>{{total}}</p>
+        <button-counter @click="alert('无法弹出，要使用.native')"v-on:child-increment="handleChildIncrement"></button-counter>
+        <button-counter @click.native="alert('.native 修饰符，hello')" v-on:child-increment="handleChildIncrement"></button-counter>
+    </div>
+
+    <div id="example11">
+        <input v-on:value="something" v-on:input="something = $event.target.value">
+        <p>{{something}}</p>
+    </div>
+
+    <div id="example12">
+        <h1>父组件标题</h1>
+        <comp-slot1>
+            <p>一些初始内容</p>
+            <p>更多初始内容</p>
+        </comp-slot1>
+        <comp-slot1></comp-slot1>
+    </div>
+
+    <div id="example13">
+        <app-layout>
+            <h1 slot="header">头部-页面标题</h1>
+
+            <p>页面正文内容</p>
+            <p>更多页面正文内容</p>
+
+            <p slot="footer">底部-共用的底部信息</p>
+        </app-layout>
+    </div>
+    <script src="https://cdn.bootcss.com/vue/2.1.10/vue.min.js"></script>
+    <script src="example.js"></script>
+</body>
+</html>
