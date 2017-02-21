@@ -235,3 +235,22 @@ Vue.component('child-slot', {
 new Vue({
     el: '#example14'
 });
+
+// 动态组件
+new Vue({
+    el: '#example15',
+    data: {
+        currentView: 'home'
+    },
+    components: {
+        home: {
+            template: '<div>This is Home!</div>'
+        },
+        posts: {
+            template: '<div>This is posts!</div>'
+        },
+        archive: {
+            template: '<div>This is arhive!</div>'
+        }
+    }
+});
