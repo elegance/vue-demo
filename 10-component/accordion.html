@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>手风琴效果组件</title>
+    <style>
+    /* 样式就先写这里了。*/
+        body {
+            font-size: 12px;
+        }
+        
+        .accordtion {
+            width: 200px;
+        }
+        
+        .accordtion > .item {
+            border: 1px solid #ccc;
+            border-top: 0;
+        }
+        
+        .accordtion > .item:first-child {
+            border-top: 1px solid #ccc;
+        }
+        
+        .accordtion > .item > .title {
+            border-bottom: 1px solid #fff;
+            background: #eee;
+            cursor: pointer;
+            font-weight: bold;
+            color: #333;
+            padding: 5px 10px;
+        }
+        
+        .accordtion > .item > .body {
+            padding: 10px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <accordion :data="expanders">
+        </accordion>
+    </div>
+    <script src="https://cdn.bootcss.com/vue/2.1.10/vue.min.js"></script>
+    <script src="accordion.js"></script>
+</body>
+
+</html>
