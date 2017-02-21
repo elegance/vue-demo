@@ -15,9 +15,46 @@
         <p style="white-space:pre">{{message}}</p>
         <br>
         <textarea v-model="message" placeholder="add multiple lines"></textarea>
-        <h6>单个勾选框</h6>
+
+        <h6>复选框</h6>
+        <p>单个复选框，逻辑值</p>
         <input type="checkbox" id="checkbox" v-model="checked">
         <label for="checkbox">{{ checked }}</label>
+        <p>多个复选框，绑定到一个数组</p>
+        <input type="checkbox" id="jack" value="jack" v-model="checkedNames">
+        <label for="jack">Jack</label>
+        <input type="checkbox" id="john" value="john" v-model="checkedNames">
+        <label for="john">John</label>
+        <input type="checkbox" id="mike" value="mike" v-model="checkedNames">
+        <label for="mike">Mike</label>
+        <br>
+        <span>Checked names: {{checkedNames}}</span>
+
+        <h6>单选按钮</h6>
+        <input type="radio" id="one" value="One" v-model="picked">
+        <label for="one">One</label>
+        <input type="radio" id="two" value="Two" v-model="picked">
+        <label for="two">Two</label>
+        <br>
+        <span>Picked: {{picked}}</span>
+
+        <h6>选中列表</h6>
+        <p>单选列表</p>
+        <select v-model="selected">
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <span>Selected: {{selected}}</span>
+
+        <p>多选列表，绑定到一个数组</p>
+        <select v-model="selected2" multiple>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <span>Selected: {{selected2}}</span>
+
     </div>
     <hr>
 
